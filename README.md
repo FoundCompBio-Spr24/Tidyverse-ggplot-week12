@@ -93,7 +93,7 @@ The above command calculates the average city and highway fuel economy of each e
 
 ## Visualizing data with ggplot
 
-Like we learned last week, many visualization are possible in base R. However, similarly to tidyverse, many data scientists have turned to a package known as `ggplot2` for assistance in creating clear, highly customizable, and publication ready figures. When combined, tidyverse and ggplot form an extremely powerful way to both wrangle and visualize data. To demonstrate this, we'll be using the `avg_mpg` dataset that we created earlier using tidyverse.
+Like we learned last week, many visualizations are possible in base R. However, similarly to tidyverse, many data scientists have turned to a package known as `ggplot2` for assistance in creating clear, highly customizable, and publication ready figures. When combined, tidyverse and ggplot form an extremely powerful way to both wrangle and visualize data. To demonstrate this, we'll be using the `avg_mpg` dataset that we created earlier using tidyverse.
 
 Firstly, we need to install and load ggplot. This can be done with the following commands:
 
@@ -115,16 +115,16 @@ p = ggplot(data = avg_mpg, mapping = aes(x = NumCyl, y = avgCityFE)) + geom_poin
 show(p)
 ```
 
-In the above command, `data` species our dataset, `mapping` allows us to specify the x and y axes through the `aes()` function. Note that the first part of this command, encompassed by the `ggplot()` function, only tells ggplot what our data is and how to map it. In order to tell ggplot how we want our data to be visualized, we have to specify the geometry. Here, we use `+ geom_point()` to tell ggplot that we want our data visualized as a scatter plot. If we wanted to, say, visualize our data as a line graph, we could instead do `+ geom_line()`. Many different types of plots are available in ggplot, and it's recommended that you explore some of them on your own in the [ggplot documentation](https://ggplot2.tidyverse.org/index.html). Here, we store this whole command as a variable. This will allows us to easily add on to it in the future.
+In the above command, `data` specifies our dataset, and `mapping` allows us to specify the x and y axes through the `aes()` function. Note that the first part of this command, encompassed by the `ggplot()` function, only tells ggplot what our data is and how to map it. In order to tell ggplot how we want our data to be visualized, we have to specify the geometry. Here, we use `+ geom_point()` to tell ggplot that we want our data visualized as a scatter plot. If we wanted to, say, visualize our data as a line graph, we could instead do `+ geom_line()`. Many different types of plots are available in ggplot, and it's recommended that you explore some of them on your own in the [ggplot documentation](https://ggplot2.tidyverse.org/index.html). Here, we store this whole command as a variable. This will allows us to easily add on to it in the future.
 
-Ggplot also allows us to do statistical tests using our data and overlay these on our plots. Using the above example, we may want to see if there's is a correlation between number of engine cylinders and average city fuel economy. To do this, we can add another geometry to our plot variable:
+Ggplot also allows us to do statistical tests using our data and overlay these on our plots. Using the above example, we may want to see if there is a correlation between number of engine cylinders and average city fuel economy. To do this, we can add another geometry to our plot variable:
 
 ```
 p = p + geom_smooth(method = "lm")
 show(p)
 ```
 
-Here, the `geom_smooth()` function tries to smooth our data using some method, and we tell ggplot to accomplish this smoothing using a linear model (`method = "lm"`). When you run the above command, you'll see that your previously made scatter plot is overlayed with a best-fitting linear regression line complete with standard error ranges (to not plot the standard error, we can add `se = FALSE` to the `geom_smooth()` function).
+Here, the `geom_smooth()` function tries to smooth our data using some method, and we tell ggplot to accomplish this smoothing using a linear model (`method = "lm"`). When you run the above command, you'll see that your previously made scatter plot is overlayed with a best-fitting linear regression line complete with standard error ranges (to not plot the standard error, we can specify `se = FALSE` in the `geom_smooth()` function).
 
 Now we have a plot that shows the negative correlation between number of engine cylinders and city fuel economy! However, the plot still looks a little rough, as the axis titles are being taken straight from our dataset. To change these, we can add the `xlab()` and `ylab()` functions to our plot variable.
 
