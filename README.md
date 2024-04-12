@@ -133,5 +133,5 @@ p + xlab("Number of Cylinders") + ylab("Average City Fuel Economy (mpg)")
 show(p)
 ```
 
-Now our axes have more informative titles! We may also want to alter the appearance of our plot, and this can be done largely using themes. For example, adding `theme_bw()` to our plot variable will give us a cleaner looking black and white theme without the gray grid in the background. Many different types of themes are available through ggplot, and here again we recommend exploring these on your own in the [ggplot documentation](https://ggplot2-book.org/themes).
+Now our axes have more informative titles! We may also want to alter the appearance of our plot, and this can be done largely using themes. For example, adding ` + theme_bw()` to our plot variable will give us a cleaner looking black and white theme without the gray grid in the background. Many different types of themes are available through ggplot, and here again we recommend exploring these on your own in the [ggplot documentation](https://ggplot2-book.org/themes).
 
